@@ -5,7 +5,6 @@ import pandas as pd
 
 # Read CSV file (assuming it has headers)
 df = pd.read_csv('Modositott/Bodipy493Abeta42ResourceRPC.csv', sep = "\t", encoding='utf-16')
-print(df)
 
 # Extract X and Y values
 timeUV280 = df['UV 1_280'] + 174.407364  # Replace 'X_column_name' with the actual column name
