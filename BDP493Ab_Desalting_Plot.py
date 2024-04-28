@@ -32,10 +32,10 @@ ax.set_yticks(minor_ticks_y, minor=True)
 plt.plot(timeUV280, uv280, 'g', label='Absorbance at 280 nm (mAU)')
 plt.plot(timeUV220, uv220, 'r', label='Absorbance at 220 nm (mAU)')
 plt.plot(timeUV493, uv493, 'k', label='Absorbance at 493 nm (mAU)')
-plt.plot(timeCond, cond, 'b', label='Conductance (100 mS/cm)')
+plt.plot(timeCond, cond, 'b', label='Conductance (0.01 mS/cm)')
 plt.legend()
 
-plt.ylabel("Absorbance (mAU) and Conductance (100 mS/cm)")  # Add X-axis label
+plt.ylabel("Absorbance (mAU) and Conductance (0.01 mS/cm)")  # Add X-axis label
 plt.xlabel("Volume (ml)")  # Add Y-axis label
 #plt.title("Chromatography")  # Add title
 plt.grid(True)

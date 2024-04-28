@@ -15,12 +15,14 @@ timeCond = df['Cond'] + 174.407364
 cond = df['Cond Val'] * 100
 timeUV220 = df['UV 2_220'] + 174.407364
 uv220 = df['UV 2_220 Val']
+timeConcB = df['Conc B'] + 174.407364
+ConcB = df['Conc B Val']
 
 # Set the axis numbers
 fig, ax = plt.subplots(figsize=(10, 8))
-major_ticks_x = np.arange(0, 350, 50)
+major_ticks_x = np.arange(0, 350, 25)
 major_ticks_y = np.arange(0, 300, 50)
-minor_ticks_x = np.arange(0, 350, 10)
+minor_ticks_x = np.arange(0, 350, 12.5)
 minor_ticks_y = np.arange(0, 300, 10)
 
 ax.set_xticks(major_ticks_x)
@@ -32,10 +34,11 @@ ax.set_yticks(minor_ticks_y, minor=True)
 plt.plot(timeUV280, uv280, 'g', label='Absorbance at 280 nm (mAU)')
 plt.plot(timeUV220, uv220, 'r', label='Absorbance at 220 nm (mAU)')
 plt.plot(timeUV493, uv493, 'k', label='Absorbance at 493 nm (mAU)')
-plt.plot(timeCond, cond, 'b', label='Conductance (100 mS/cm)')
+plt.plot(timeCond, cond, 'b', label='Conductance (0.01 mS/cm)')
+plt.plot(timeConcB, ConcB, 'm', label='Amount of buffer B (%)')
 plt.legend()
 
-plt.ylabel("Absorbance (mAU) and Conductance (100 mS/cm)")  # Add X-axis label
+plt.ylabel("Absorbance (mAU) and Conductance (0.01 mS/cm) and amount of buffer B (%)")  # Add X-axis label
 plt.xlabel("Volume (ml)")  # Add Y-axis label
 #plt.title("Chromatography")  # Add title
 plt.grid(True)
