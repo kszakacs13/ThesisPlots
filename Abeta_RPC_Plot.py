@@ -7,8 +7,8 @@ import pandas as pd
 df = pd.read_csv('Modositott/Abeta_source15rpc_231017.csv', sep = "\t", encoding='utf-16')
 
 # Extract X and Y values
-timeUV280 = df['UV 1_280'] + 224.247726  # Replace 'X_column_name' with the actual column name
-uv280 = df['UV 1_280 Val']  # Replace 'Y_column_name' with the actual column name
+timeUV280 = df['UV 1_280'] + 224.247726
+uv280 = df['UV 1_280 Val']
 timeCond = df['Cond'] + 224.247726
 cond = df['Cond Val'] * 100
 timeUV220 = df['UV 2_220'] + 224.247726

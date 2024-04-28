@@ -7,8 +7,8 @@ import pandas as pd
 df = pd.read_csv('Modositott/Bodipy493Abeta42DeSalt.csv', sep = "\t", encoding='utf-16')
 
 # Extract X and Y values
-timeUV280 = df['UV 1_280'] + 66.010132  # Replace 'X_column_name' with the actual column name
-uv280 = df['UV 1_280 Val']  # Replace 'Y_column_name' with the actual column name
+timeUV280 = df['UV 1_280'] + 66.010132
+uv280 = df['UV 1_280 Val']
 timeUV493 = df['UV 3_493'] + 66.010132
 uv493 = df['UV 3_493 Val']
 timeCond = df['Cond'] + 66.010132
