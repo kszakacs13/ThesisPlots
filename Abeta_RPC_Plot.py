@@ -3,7 +3,10 @@ import numpy as np
 import matplotlib.ticker as ticker
 import pandas as pd
 
-lettersFontsize = 16
+lettersFontsize = 24
+
+import matplotlib
+matplotlib.rcParams.update({'font.size': 16})
 
 # Read CSV file (assuming it has headers)
 df = pd.read_csv('Modositott/Abeta_source15rpc_231017.csv', sep = "\t", encoding='utf-16')
@@ -33,18 +36,17 @@ fig, ax = plt.subplots(figsize=(10, 8))
 # Create a simple line plot
 ax.plot(timeUV280, uv280, 'g', label='Absorbance at 280 nm (mAU)')
 ax.plot(timeUV220, uv220, 'r', label='Absorbance at 220 nm (mAU)')
-ax.plot(timeCond, cond, 'b', label='Conductance (0.01 mS/cm)')
 ax.legend(loc='upper left')
 
-ax.set_ylabel("Absorbance (mAU) and Conductance (0.01 mS/cm)", fontsize = lettersFontsize)  # Add X-axis label
+ax.set_ylabel("Absorbance (mAU)", fontsize = lettersFontsize)  # Add X-axis label
 ax.set_xlabel("Volume (ml)", fontsize = lettersFontsize)  # Add Y-axis label
 
 # Second Y-axis
 ax2 = ax.twinx()
-ax2.plot(timeConcB, ConcB, 'm', label='Amount of buffer B (%)')
+ax2.plot(timeConcB, ConcB, 'm', label='Buffer B %')
 ax2.legend(loc='upper right')
 
-ax2.set_ylabel("Amount of buffer B (%)", fontsize = lettersFontsize)
+ax2.set_ylabel("B %", fontsize = lettersFontsize)
 
 # Tick frequency
 ax.yaxis.set_major_locator(ticker.MultipleLocator(400))

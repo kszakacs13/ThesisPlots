@@ -3,7 +3,10 @@ import numpy as np
 import matplotlib.ticker as ticker
 import pandas as pd
 
-lettersFontsize = 16
+lettersFontsize = 24
+
+import matplotlib
+matplotlib.rcParams.update({'font.size': 16})
 
 # Read CSV file (assuming it has headers)
 df = pd.read_csv('Modositott/BODIPYTMR-X_Abeta42_HiTrap-Desaltin_Kristof.csv', sep = "\t", encoding='utf-16')
@@ -32,7 +35,7 @@ fig, ax = plt.subplots(figsize=(10, 8))
 
 # Create a simple line plot
 ax.plot(timeUV280, uv280, 'g', label='Absorbance at 280 nm (mAU)')
-ax.plot(timeUV214, uv214, 'r', label='Absorbance at 214 nm (mAU)')
+ax.plot(timeUV214, uv214, 'r', label='Absorbance at 220 nm (mAU)')
 ax.plot(timeUV544, uv544, 'k', label='Absorbance at 544 nm (mAU)')
 # ax.plot(timeCond, cond, 'b', label='Conductance (0.01 mS/cm)')
 ax.legend(loc='upper right')

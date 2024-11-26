@@ -3,7 +3,10 @@ import numpy as np
 import matplotlib.ticker as ticker
 import pandas as pd
 
-lettersFontsize = 16
+lettersFontsize = 24
+
+import matplotlib
+matplotlib.rcParams.update({'font.size': 16})
 
 # Read CSV file (assuming it has headers)
 df = pd.read_csv('Modositott/Bodipy493Abeta42DeSalt.csv', sep = "\t", encoding='utf-16')

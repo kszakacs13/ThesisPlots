@@ -3,17 +3,20 @@ import numpy as np
 import matplotlib.ticker as ticker
 import pandas as pd
 
-lettersFontsize = 16
+lettersFontsize = 24
+
+import matplotlib
+matplotlib.rcParams.update({'font.size': 16})
 
 # Read CSV file (assuming it has headers)
 df = pd.read_csv('Modositott/BODIPYTMRXAbeta42ResourceRPC.csv', sep = "\t", encoding='utf-16')
 
 # Extract X and Y values
-timeUV280 = df['UV 1_280'] + 196.69931 - 497.947479 # First addition is for the data to start from zero, second subtraction is to set the injection point to zero
-uv280 = df['UV 1_280 Val']
-timeCond = df['Cond'] + 196.69931 - 497.947479
-cond = df['Cond Val'] * 100
-timeConcB = df['Conc B'] + 196.69931 - 497.947479
+timeUV214 = df['UV 2_214'] + 497.950653 - 497.947479 # First addition is for the data to start from zero, second subtraction is to set the injection point to zero
+uv214 = df['UV 2_214 Val']
+timeUV544 = df['UV 3_544'] + 497.950653 - 497.947479 # First addition is for the data to start from zero, second subtraction is to set the injection point to zero
+uv544 = df['UV 3_544 Val']
+timeConcB = df['Conc B'] + 497.950653 - 497.947479
 ConcB = df['Conc B Val']
 
 # Set the axis numbers
@@ -29,19 +32,19 @@ fig, ax = plt.subplots(figsize=(10, 8))
 # ax.set_yticks(minor_ticks_y, minor=True)
 
 # Create a simple line plot
-ax.plot(timeUV280, uv280, 'g', label='Absorbance at 280 nm (mAU)')
-ax.plot(timeCond, cond, 'b', label='Conductance (0.01 mS/cm)')
+ax.plot(timeUV214, uv214, 'g', label='Absorbance at 220 nm (mAU)')
+ax.plot(timeUV544, uv544, 'r', label='Absorbance at 544 nm (mAU)')
 ax.legend(loc='upper left')
 
 ax.set_xlabel("Volume (ml)", fontsize = lettersFontsize)
-ax.set_ylabel("Absorbance (mAU) and Conductance (0.01 mS/cm)", fontsize = lettersFontsize)
+ax.set_ylabel("Absorbance (mAU)", fontsize = lettersFontsize)
 
 # Second Y-axis
 ax2 = ax.twinx()
-ax2.plot(timeConcB, ConcB, 'm', label='Amount of buffer B (%)')
+ax2.plot(timeConcB, ConcB, 'm', label='Buffer B %')
 ax2.legend(loc='upper right')
 
-ax2.set_ylabel("Amount of buffer B (%)", fontsize = lettersFontsize)
+ax2.set_ylabel("B %", fontsize = lettersFontsize)
 
 # Tick frequency
 ax.yaxis.set_major_locator(ticker.MultipleLocator(40))
